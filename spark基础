@@ -1,1 +1,21 @@
-一次性数据计算
+RDD 弹性分布式数据集
+  RDD是Spark对于分布式数据的统一抽象，它定义了一系列分布式数据的基本属性与处理方法
+  4大属性：
+    partitions：数据分片
+    partitioner：分片切割规则
+    dependencies：RDD依赖
+    compute：转换函数
+  在RDD的编程模型中一共有两种算子：Transformations类算子和Actions类算子。开发者需要用Transformations类算子，定义并描述数据形态的转换过程，然后调用Actions类算子，
+  将计算结果收集起来、或是物化到物理磁盘
+  
+  创建RDD：
+    在Spark中，创建RDD的典型方式有两种：
+      
+
+常用算子
+  map：以元素为粒度的数据转换
+    用法：给定映射函数f，map(f)以元素为粒度对RDD做数据转换。其中f可以是带有明确签名的带名函数，也可以是匿名函数，它的形参类型必须与RDD的元素类型保持一致，而输出类型则任由开发者自行决定
+      
+  mapPartitions
+  flatMap
+  filter
